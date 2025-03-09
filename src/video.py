@@ -1,5 +1,6 @@
 import cv2
-import opencv_tr as tr
+#import opencv_tr as tr
+import dlib_tr as tr
 
 # exibcion frame resolution
 #FRAME_SIZE = (640, 480)
@@ -10,7 +11,7 @@ FRAME_SIZE = (800, 800)
 def getCapture( source ):
     capture = cv2.VideoCapture( source )
 
-    capture.set(cv2.CAP_PROP_FPS, 10.0)
+    capture.set(cv2.CAP_PROP_FPS, 30.0)
     capture.set(cv2.CAP_PROP_FRAME_WIDTH, FRAME_SIZE[0])
     capture.set(cv2.CAP_PROP_FRAME_HEIGHT, FRAME_SIZE[1])
 
@@ -37,7 +38,10 @@ def main():
 
     #cap = getCapture("temp/examaple.mp4")
     cap = getCapture(2)
-    track = tr.OpenCVTR()
+    
+    track = tr.DlibTr()
+    #track = tr.OpenCVTR()
+    
 
     while( cap.isOpened() ):
         
