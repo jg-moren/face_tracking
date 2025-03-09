@@ -1,7 +1,7 @@
 import cv2
 
 # frame resolution to tracking
-IA_FRAME_SIZE = (400, 200)
+IA_FRAME_SIZE = (300, 150)
 
 class OpenCVTR:
 
@@ -36,10 +36,6 @@ class OpenCVTR:
             return frame
             #cv2.rectangle( frame_gray, (x,y), (x+w,y+h), (255,0,0), 2)
             #cv2.rectangle( frame, (x,y), (x+w,y+h), (255,0,0), 2)
-
-        
-        
-        
 
         return frame
 

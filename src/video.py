@@ -4,7 +4,7 @@ import opencv_tr as tr
 # exibcion frame resolution
 #FRAME_SIZE = (640, 480)
 #FRAME_SIZE = (320, 240)
-FRAME_SIZE = (500, 500)
+FRAME_SIZE = (800, 800)
 
 # load and show camera info
 def getCapture( source ):
@@ -25,7 +25,7 @@ def getCapture( source ):
 def getFrame( cap ):
     ok, frame = cap.read()
     frame = cv2.resize(frame, (FRAME_SIZE), interpolation=cv2.INTER_LANCZOS4)
-    return frame
+    return frame    
 
 
 def showFrame( frame ):
@@ -36,7 +36,7 @@ def showFrame( frame ):
 def main():
 
     #cap = getCapture("temp/examaple.mp4")
-    cap = getCapture(0)
+    cap = getCapture(2)
     track = tr.OpenCVTR()
 
     while( cap.isOpened() ):
