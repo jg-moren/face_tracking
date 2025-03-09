@@ -1,6 +1,7 @@
 import cv2
 #import opencv_tr as tr
-import dlib_tr as tr
+#import dlib_tr as tr
+import mediapipe_tr as tr
 
 # exibcion frame resolution
 #FRAME_SIZE = (640, 480)
@@ -39,9 +40,9 @@ def main():
     #cap = getCapture("temp/examaple.mp4")
     cap = getCapture(2)
     
-    track = tr.DlibTr()
+    #track = tr.DlibTr()
     #track = tr.OpenCVTR()
-    
+    track = tr.MediaPipeTr()
 
     while( cap.isOpened() ):
         
@@ -54,9 +55,6 @@ def main():
         if ( cv2.waitKey(5) & 0xFF == ord('q') ):
             cap.release()
         
-
-
-
 
 
 if __name__ == '__main__':
