@@ -4,9 +4,9 @@ import cv2
 import mediapipe_tr as tr
 
 # exibcion frame resolution
-#FRAME_SIZE = (640, 480)
+FRAME_SIZE = (640, 480)
 #FRAME_SIZE = (320, 240)
-FRAME_SIZE = (800, 800)
+#FRAME_SIZE = (800, 800)
 
 # load and show camera info
 def getCapture( source ):
@@ -47,6 +47,8 @@ def main():
     while( cap.isOpened() ):
         
         frame = getFrame(cap)
+
+        
 
         frame = track.face_points(frame)
 
