@@ -6,9 +6,8 @@ mp_drawing_styles = mp.solutions.drawing_styles
 mp_face_detection = mp.solutions.face_detection
 
 # links ref:
-#   https://ai.google.dev/edge/mediapipe/solutions/vision/face_landmarker
-#   https://github.com/google-ai-edge/mediapipe/wiki/MediaPipe-Face-Mesh
-#   https://github.com/google-ai-edge/mediapipe/blob/master/docs/solutions/face_mesh.md#face-landmark-model
+#   https://github.com/google-ai-edge/mediapipe/blob/master/docs/solutions/face_detection.md
+#   https://github.com/google-ai-edge/mediapipe/blob/master/docs/solutions/face_mesh.md
 #
 
 class MediaPipeTr:
@@ -16,32 +15,6 @@ class MediaPipeTr:
 
         self.detector = mp_face_detection.FaceDetection(
             model_selection=0, min_detection_confidence=0.5)
-
-    def draw_face(image, results):
-        if results.multi_face_landmarks:
-            for face_landmarks in results.multi_face_landmarks:
-                mp_drawing.draw_landmarks(
-                    image=image,
-                    landmark_list=face_landmarks,
-                    connections=mp_face_mesh.FACEMESH_TESSELATION,
-                    landmark_drawing_spec=None,
-                    connection_drawing_spec=mp_drawing_styles
-                    .get_default_face_mesh_tesselation_style())
-                mp_drawing.draw_landmarks(
-                    image=image,
-                    landmark_list=face_landmarks,
-                    connections=mp_face_mesh.FACEMESH_CONTOURS,
-                    landmark_drawing_spec=None,
-                    connection_drawing_spec=mp_drawing_styles
-                    .get_default_face_mesh_contours_style())
-                mp_drawing.draw_landmarks(
-                    image=image,
-                    landmark_list=face_landmarks,
-                    connections=mp_face_mesh.FACEMESH_IRISES,
-                    landmark_drawing_spec=None,
-                    connection_drawing_spec=mp_drawing_styles
-                    .get_default_face_mesh_iris_connections_style())
-
 
 
     def face_points(self, frame):
